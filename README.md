@@ -26,4 +26,4 @@ $('div.draggables').dagron({
 ```
 
 ### Dependencies
-Minimal dependency of [http://ender.no.de](Enders) [http://ender-js.s3.amazonaws.com/jeesh.min.js](Jeesh)
+Minimal dependency of (http://ender.no.de)[Enders] (http://ender-js.s3.amazonaws.com/jeesh.min.js)[Jeesh]
