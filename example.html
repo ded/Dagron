@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>Ender Drag and Drop</title>
+    <script src="http://ender-js.s3.amazonaws.com/jeesh.min.js"></script>
+    <script src="./dagron.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $('#foo').dagron({
+            target: '.droppable'
+          , handle: '.handle'
+          , drop: function (el) {
+              $(this).removeClass('over')
+              console.log('dropped', el)
+            }
+          , enter: function (el) {
+              $(this).addClass('over')
+              console.log('entered', el)
+            }
+          , leave: function (el) {
+              $(this).removeClass('over')
+              console.log('left', el)
+            }
+          , drag: function (el) {
+              // this fires way to fast
+              // console.log('dragging', el)
+            }
+          , start: function (el) {
+              $(this).addClass('dragging')
+              console.log('started dragging', el)
+            }
+          , end: function (el) {
+              $(this).removeClass('dragging')
+              console.log('stopped dragging', el)
+          }
+        })
+      })
+    </script>
+    <style type="text/css" media="screen">
+      [draggable] {
+        -moz-user-select: none;
+        -khtml-user-select: none;
+        -webkit-user-select: none;
+        user-select: none;
+      }
+      h1 {
+        font: 100 38px helvetica neue;
+      }
+
+      .box {
+        width: 100px;
+        height: 100px;
+        position: relative;
+        border: 5px solid black;
+      }
+      .box .handle {
+        position: absolute;
+        left: 0;
+        top: 3px;
+        height: 25px;
+        cursor: move;
+        background: orange;
+        width: 100%;
+      }
+      .over {
+        border: 5px dotted black;
+      }
+      .dragging {
+        opacity: 0.4;
+      }
+
+      #foo {
+        background: red;
+        top: 50px;
+        left: 50px;
+      }
+      #bar {
+        background: blue;
+        top: 400px;
+        left: 400px;
+      }
+      #baz {
+        background: blue;
+        top: 200px;
+        left: 200px;
+      }
+
+    </style>
+  </head>
+  <body>
+    <h1>Crouching Tiger, Hidden Dagron</h1>
+    <div class='box' id='foo'><span class='handle'>drag</span></div>
+    <div class='box droppable' id='bar'>drop</div>
+    <div class='box droppable' id='baz'>drop</div>
+  </body>
+</html>

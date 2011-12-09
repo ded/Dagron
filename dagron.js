@@ -10,10 +10,10 @@
         $(options.target)
           .bind('drop', function (e) {
             e.preventDefault()
-            options.drop && options.drop(this)
+            options.drop && options.drop.call(this, this)
           })
           .bind('dragenter', function (e) {
-            options.enter && options.enter(this)
+            options.enter && options.enter.call(this, this)
             e.preventDefault()
           })
           .bind('dragover', function (e) {
@@ -21,7 +21,7 @@
             e.dataTransfer.dropEffect = 'link'
           })
           .bind('dragleave', function (e) {
-            options.leave && options.leave(this)
+            options.leave && options.leave.call(this, this)
           })
 
       }
@@ -29,14 +29,15 @@
         .bind('dragstart', function (e) {
           e.dataTransfer.effectAllowed = 'link'
           e.dataTransfer.setData('Text', this.id)
-          options.start && options.start(this)
+          options.start && options.start.call(this, this)
         })
       options.drag && $(this).bind('drag', function (e) {
-        options.drag(this)
+        options.drag.call(this, this)
       })
 
       $(this).bind('dragend', function (e) {
         this.draggable = false
+        options.end && options.end.call(this, this)
       })
       this.forEach(function (el) {
         var $handle = options.handle ? $(el).find(options.handle) : $(el)

@@ -22,6 +22,9 @@ $('div.draggables').dagron({
   , leave: function (el) {
       // el is the item left from
     }
+  , end: function (el) {
+      // el is the element you stopped dragging
+    }
 })
 ```
 
