@@ -1,7 +1,7 @@
 {
     "name": "dagron"
   , "description": "an HTML5 Drag and Drop library for Ender"
-  , "version": "0.0.2"
+  , "version": "0.0.3"
   , "homepage": "https://github.com/ded/dagron"
   , "author": "Dustin Diaz <dustin@dustindiaz.com> (http://dustindiaz.com)"
   , "keywords": ["ender", "drag", "drop", "html5"]
