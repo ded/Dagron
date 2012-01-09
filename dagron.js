@@ -9,18 +9,15 @@
       if (options.target) {
         $(options.target)
           .bind('drop', function (e) {
-            e.preventDefault()
-            e.stopPropagation()
+            e.stop()
             options.drop && options.drop.call(this, this)
           })
           .bind('dragenter', function (e) {
             options.enter && options.enter.call(this, this)
-            e.stopPropagation()
-            e.preventDefault()
-          })
+            e.stop()
+          })      
           .bind('dragover', function (e) {
-            e.stopPropagation()
-            e.preventDefault() // allows dropping
+            e.stop() // allows dropping
             e.dataTransfer.dropEffect = 'link'
           })
           .bind('dragleave', function (e) {
